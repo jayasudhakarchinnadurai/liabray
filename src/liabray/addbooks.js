@@ -1,8 +1,11 @@
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
 
 
 function Addbooks({book, setbooks}){
+    const history=useHistory();
 
     
     const [id ,setid]=useState();
@@ -18,6 +21,7 @@ function Addbooks({book, setbooks}){
             dep
         }
         setbooks([...book, addatas])
+        history.push("/")
         
         
     })
@@ -31,7 +35,7 @@ return(
 <TextField id="outlined-basic" label="author" variant="outlined" onChange={(e)=>setauthor(e.target.value)} />
 <TextField id="outlined-basic" label="department" variant="outlined" onChange={(e)=>setdep(e.target.value)} />
 
-<button onClick={addbooks}>Add</button>
+<Button variant="contained" color="success" onClick={addbooks}>ADD</Button>
 
 
 

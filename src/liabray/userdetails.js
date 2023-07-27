@@ -1,22 +1,30 @@
-import React, { useState } from "react";
-import { student } from "./userdata.js";
 
-function Studata(){
 
-    const [stu , setstu]=useState(student);
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min.js";
+
+
+function Studata( {book}){
+    const history=useHistory();
+
+    
     return (
         <div >
-            <h1>Students Record</h1>
+            <button onClick={()=>history.push("/")}>Dashborad</button>
+          
+            
+    <h1>Books Name</h1>
 
      <div className="student">
-      {stu.map((per,idx)=>
+      {book.map((per,idx)=>
        <div key={idx} className="studata">
-        <h3>Name:{per.name}</h3>
-        <p>Email:{per.email}</p>
-        <p>Year:{per.year}</p>
+        <h3 >Book:{per.bookname}</h3>
+        <p>Author:{per.author}</p>
+        <p>Dep:{per.Dep}</p>
         </div>
 )}
+
 </div>
+
         </div>
     )
 }

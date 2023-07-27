@@ -8,7 +8,7 @@ function Dashborad(){
     const history=useHistory();
     
     return(
-        <Dashborad>
+    
         <div className="library">
             <div >
             <h4 className="title">library mangement system</h4>
@@ -19,12 +19,10 @@ function Dashborad(){
             <button onClick={()=>history.push('/data')} >Total books</button>
             </div><br></br>
             <div>
-            <button>Add books</button>
+            <button onClick={()=>history.push("/add")}>Add books</button>
             </div><br></br>
-            <div>
-            <button>Books Return</button>
-            </div><br></br>
-            <button>Remove Books</button>
+            
+            <button onClick={()=>history.push("/delete")}>Remove Books</button>
 
             </div>
 
@@ -32,7 +30,7 @@ function Dashborad(){
             
             
         </div>
-        </Dashborad>
+    
     )
 }
 
