@@ -20,6 +20,7 @@ function Studata( {book}){
         <h3 >Book:{per.bookname}</h3>
         <p>Author:{per.author}</p>
         <p>Dep:{per.Dep}</p>
+       <button onClick={()=>history.push(`/edit/${idx}`)}>Edit</button>
         </div>
 )}
 

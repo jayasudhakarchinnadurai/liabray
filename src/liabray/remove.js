@@ -1,7 +1,11 @@
-import React from "react";
+// import { useState } from "react";
 
 
 function Delete({book, setbooks}){
+   
+//    const [show, setshow]=useState(true)
+   
+    
     const remove=((idx)=>{
     const deleteuser=book.filter((per, id)=>per.id !==idx);
 setbooks(deleteuser);
@@ -17,6 +21,8 @@ setbooks(deleteuser);
           <button onClick={()=>remove(per.id)}>Delete</button>
           </div>
   )}
+ 
+  
    </div>    
 
     )

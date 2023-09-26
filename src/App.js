@@ -7,6 +7,8 @@ import Addbooks from './liabray/addbooks';
 import { useState } from 'react';
 import { student } from './liabray/userdata';
 import Delete from './liabray/remove.js';
+import Editbook from './liabray/editbook';
+
 
 
  
@@ -38,6 +40,12 @@ function App() {
         <Delete book={book}  setbooks={setbooks}/>
        </Route>
 
+       <Route path="/edit/:id">
+        <Editbook book={book }
+        setbooks={setbooks}/>
+       </Route>
+
+       
       </Switch>
      
     </div>

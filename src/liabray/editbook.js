@@ -1,9 +1,9 @@
-import { Button, TextField } from "@mui/material";
-import { useFormik,  } from "formik";
-// import { useState } from "react";
+import { Button,TextField} from "@mui/material";
+import { useFormik } from "formik";
+import React from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import *as yup from "yup";
-
 
 
 const userschemavalidation=yup.object({
@@ -15,21 +15,26 @@ const userschemavalidation=yup.object({
       });
 
 
-function Addbooks({book, setbooks}){
+
+function Editbook({book, setbooks}){
     const history=useHistory();
-  
+    const {id}=useParams();
+    const data=book[id]
+    
+
     const {values, handleChange,handleSubmit,errors}=useFormik({
         initialValues:{
-            id:"",
-            bookname:"",
-            author:"",
-            Dep:"",
+            id:data.id,
+            bookname:data.bookname,
+            author:data.author,
+            Dep:data.Dep,
 
         },
         validationSchema:userschemavalidation,
         onSubmit:(newdata)=>{
-            setbooks([...book, newdata])
-            history.push("/data")
+           book[id]=newdata;
+           setbooks([...book]);
+           history.push("/data")
         }
 
     })
@@ -37,23 +42,11 @@ function Addbooks({book, setbooks}){
 
 
     
-    // const addbooks=(()=>{
-    //     const addatas={
-    //         id,
-    //         bookname,
-    //         author,
-    //         dep
-    //     }
-    //     setbooks([...book, addatas])
-    //     history.push("/")
-        
-        
-    // })
+   
     
 return(
-    
 <div className="add">
-    <h1>Add Books</h1>
+    <h1>Edit Books</h1>
 <form onSubmit={handleSubmit}>
     
 <TextField 
@@ -63,7 +56,7 @@ label="id"
 variant="outlined" 
 value={values.id}
 
-onChange={handleChange} />
+onChange={handleChange} />{" "}
 {errors.id? <p style={{color:"crimson"}}>{errors.id}</p>:""}
 
 <TextField 
@@ -92,11 +85,13 @@ value={values.Dep}
 onChange={handleChange} /><br></br>
 {errors.Dep? <p style={{color:"crimson"}}>{errors.Dep}</p>:""}
 
-<Button variant="contained" color="success" type="submit">ADD</Button>
+<Button variant="contained" color="success" type="submit">Edit</Button>
 
 </form>
 
 </div>
+
     )
 }
-export default Addbooks;
+
+export default Editbook;
