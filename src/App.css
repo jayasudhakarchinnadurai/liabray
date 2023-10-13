@@ -4,16 +4,19 @@
 
 
 .title{
+  position: relative;
+  bottom: 310px;
   justify-content: center;
   height: 40px;
   width: 100%;
   background-color: rgb(160, 96, 219) ;
 }
 .side{
-  
- text-align: left;
+  position: relative;
+  bottom: 331px;
+  text-align: left;
   height: 600px;
-  width: 120px;
+  width: 150px;
   background-color: aqua;
 }
 
@@ -36,8 +39,25 @@
   display: flex;
   flex-direction: column;
   position: absolute;
+  margin: 3px;
   left: 30%;
   gap: 10px;
   width: 350px;
   justify-content: center;
+}
+
+
+.book-img{
+  position: relative;
+  top:230px
+}
+
+.btn-click{
+  color:white;
+  background-color: blueviolet;
+  border: none;
+  border-radius: 3px;
+  height: 30px;
+  width: 60 px;
+  cursor: pointer;
 }

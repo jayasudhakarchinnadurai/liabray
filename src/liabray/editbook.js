@@ -56,7 +56,7 @@ label="id"
 variant="outlined" 
 value={values.id}
 
-onChange={handleChange} />{" "}
+onChange={handleChange} />{" "}<br></br><br></br>
 {errors.id? <p style={{color:"crimson"}}>{errors.id}</p>:""}
 
 <TextField 
@@ -65,7 +65,7 @@ name="bookname"
 label="book name" 
 variant="outlined"
 value={values.bookname} 
-onChange={handleChange}/>
+onChange={handleChange}/><br></br><br></br>
 {errors.bookname? <p style={{color:"crimson"}}>{errors.bookname}</p>:""}
 
 <TextField 
@@ -74,7 +74,7 @@ name="author"
 label="author" 
 variant="outlined"
 value={values.author}
-onChange={handleChange} />
+onChange={handleChange} /><br></br><br></br>
 {errors.author? <p style={{color:"crimson"}}>{errors.author}</p>:""}
 <TextField 
 id="outlined-basic" 
